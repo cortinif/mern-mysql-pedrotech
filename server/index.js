@@ -7,10 +7,14 @@ const port = 3001;
 const db = require('./models');
 
 //Routers
-const postRoutes = require('./routes/Posts');
-app.use("/posts", postRoutes);
-const commentRoutes = require('./routes/Comments');
-app.use("/comments", commentRoutes);
+const postsRoutes = require('./routes/Posts');
+app.use("/posts", postsRoutes);
+const commentsRoutes = require('./routes/Comments');
+app.use("/comments", commentsRoutes);
+const usersRoutes = require('./routes/Users');
+app.use("/auth", usersRoutes);
+const likesRoutes = require('./routes/Likes');
+app.use("/likes", likesRoutes);
 
 db.sequelize.sync().then(() => {
     app.listen(port, () => {
